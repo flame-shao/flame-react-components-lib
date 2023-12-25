@@ -1,0 +1,4 @@
+*.md linguist-language=TypeScript 
+*.html linguist-language=TypeScript 
+*.css linguist-language=TypeScript 
+*.scss linguist-language=TypeScript

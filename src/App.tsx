@@ -2,7 +2,7 @@ import Button from "./components/Button";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" data-testid="root-element">
       <Button btnType="primary" size="lg">
         testewqeqewq
       </Button>

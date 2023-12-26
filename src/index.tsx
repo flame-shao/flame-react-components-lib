@@ -4,6 +4,11 @@ import "./styles/index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+
+library.add(fas as any);
+
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );

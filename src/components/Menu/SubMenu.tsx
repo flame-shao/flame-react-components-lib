@@ -9,6 +9,8 @@ import React, {
 import classNames from "classnames";
 import { MenuContext } from "./Menu";
 import { MenuItemProps } from "./MenuItem";
+import Icon from "../Icon/icon";
+import Transition from "../Transition/transition";
 
 export interface SubMenuProps {
   index?: string;
@@ -82,13 +84,18 @@ export const SubMenu: FC<PropsWithChildren<SubMenuProps>> = ({
         );
       }
     });
-    return <ul className={subMenuClasses}>{childrenComponent}</ul>;
+    return (
+      <Transition in={menuOpen} timeout={300} animation="zoom-in-top">
+        <ul className={subMenuClasses}>{childrenComponent}</ul>
+      </Transition>
+    );
   };
 
   return (
     <li key={index} className={classes} {...hoverEvents}>
       <div className="submenu-title" {...clickEvents}>
         {title}
+        <Icon icon="angle-down" className="arrow-icon" />
       </div>
       {renderChildren()}
     </li>

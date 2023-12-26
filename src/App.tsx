@@ -1,13 +1,15 @@
-import Button from "./components/Button";
+// import Button from "./components/Button";
+import Icon from "./components/Icon";
 import Menu from "./components/Menu/index";
 
 function App() {
   return (
     <div className="App" data-testid="root-element">
+      <Icon icon="coffee" theme="danger" size="10x" />
       <Menu
         defaultIndex="0"
         onSelect={() => console.log("sdsdsds")}
-        mode="vertical"
+        // mode="vertical"
       >
         <Menu.Item>cool link</Menu.Item>
         <Menu.Item>cool link 2</Menu.Item>

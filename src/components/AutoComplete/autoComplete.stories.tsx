@@ -21,6 +21,7 @@ export default {
       },
     },
   },
+  tags: ["autodocs"],
   // argTypes: { onClick: { action: 'clicked' }, onSelect: { action: 'selected' }, onChange: { action: 'changed' } },
 } as ComponentMeta<typeof AutoComplete>;
 

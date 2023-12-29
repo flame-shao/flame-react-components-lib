@@ -14,6 +14,7 @@ import Transition from "../Transition/transition";
 import useDebounce from "../../hooks/useDebounce";
 import useClickOutside from "../../hooks/useClickOutside";
 interface DataSourceObject {
+  id?: string | number;
   value: string;
 }
 export type DataSourceType<T = {}> = T & DataSourceObject;
@@ -136,7 +137,11 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
   const renderTemplate = (item: DataSourceType) => {
     return renderOption ? renderOption(item) : item.value;
   };
+
+  //  TODO: 抽出 options组件，与select共用
   const generateDropdown = () => {
+    const dropdownOptions =
+      suggestions.length === 0 ? [{ value: "暂无数据" }] : suggestions;
     return (
       <Transition
         in={showDropdown || loading}
@@ -152,13 +157,13 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
               <Icon icon="spinner" spin />
             </div>
           )}
-          {suggestions.map((item, index) => {
+          {dropdownOptions.map((item, index) => {
             const cnames = classNames("suggestion-item", {
               "is-active": index === highlightIndex,
             });
             return (
               <li
-                key={index}
+                key={item.id || index}
                 className={cnames}
                 onClick={() => handleSelect(item)}
               >
